@@ -1,0 +1,150 @@
+2024-10-12 00:33:12,990 387273 DEBUG ? odoo.netsvc: logger level set: "odoo.http.rpc.request:INFO" 
+2024-10-12 00:33:12,990 387273 DEBUG ? odoo.netsvc: logger level set: "odoo.http.rpc.response:INFO" 
+2024-10-12 00:33:12,991 387273 DEBUG ? odoo.netsvc: logger level set: ":INFO" 
+2024-10-12 00:33:12,991 387273 DEBUG ? odoo.netsvc: logger level set: "odoo:DEBUG" 
+2024-10-12 00:33:12,991 387273 DEBUG ? odoo.netsvc: logger level set: "odoo.sql_db:INFO" 
+2024-10-12 00:33:12,991 387273 DEBUG ? odoo.netsvc: logger level set: ":INFO" 
+2024-10-12 00:33:12,992 387273 INFO ? odoo: Odoo version 13.0 
+2024-10-12 00:33:12,992 387273 INFO ? odoo: Using configuration file at /odoo/configs/odoo-demodevel-jj-hr-odoo13.conf 
+2024-10-12 00:33:12,992 387273 INFO ? odoo: addons paths: ['/odoo/releases/13.0/odoo/addons', '/odoo/.local/share/Odoo/addons/13.0', '/odoo/releases/13.0/addons', '/odoo/Instances/demodevel-jj-hr-odoo13/SuiteRepos/Payroll', '/odoo/Instances/demodevel-jj-hr-odoo13/SuiteRepos/SimplePayslipTemplate/0_Installable/13.0', '/odoo/Instances/demodevel-jj-hr-odoo13/SuiteRepos/SIDIL-Odoo/mods_bugfixes'] 
+2024-10-12 00:33:12,993 387273 INFO ? odoo: database: odoo@default:default 
+2024-10-12 00:33:13,309 387273 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2024-10-12 00:33:13,528 387273 DEBUG ? odoo.service.server: Setting signal handlers 
+2024-10-12 00:33:13,531 387273 INFO ? odoo.service.server: HTTP service (werkzeug) running on JerPro-OdooDevel.lan:20013 
+2024-10-12 00:33:13,556 387273 DEBUG ? odoo.modules.registry: Multiprocess load registry signaling: [Registry: 12] [Cache: 7] 
+2024-10-12 00:33:13,566 387273 INFO demodevel-jj-hr-odoo13 odoo.modules.loading: loading 1 modules... 
+2024-10-12 00:33:13,567 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module base (1/1) 
+2024-10-12 00:33:13,603 387273 INFO demodevel-jj-hr-odoo13 odoo.modules.loading: 1 modules loaded in 0.04s, 0 queries 
+2024-10-12 00:33:13,869 387273 INFO demodevel-jj-hr-odoo13 odoo.modules.loading: updating modules list 
+2024-10-12 00:33:13,874 387273 INFO demodevel-jj-hr-odoo13 odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a 
+2024-10-12 00:33:15,157 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: Updating graph with 55 more modules 
+2024-10-12 00:33:15,157 387273 INFO demodevel-jj-hr-odoo13 odoo.modules.loading: loading 56 modules... 
+2024-10-12 00:33:15,157 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module base_testing (2/56) 
+2024-10-12 00:33:15,161 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module uom (3/56) 
+2024-10-12 00:33:15,166 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module web (4/56) 
+2024-10-12 00:33:15,184 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module base_import (5/56) 
+2024-10-12 00:33:15,233 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module base_setup (6/56) 
+2024-10-12 00:33:15,243 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module bus (7/56) 
+2024-10-12 00:33:15,253 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module http_routing (8/56) 
+2024-10-12 00:33:15,263 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module resource (9/56) 
+2024-10-12 00:33:15,290 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module web_diagram (10/56) 
+2024-10-12 00:33:15,294 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module web_editor (11/56) 
+2024-10-12 00:33:15,319 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module web_kanban_gauge (12/56) 
+2024-10-12 00:33:15,322 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module web_tour (13/56) 
+2024-10-12 00:33:15,327 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module iap (14/56) 
+2024-10-12 00:33:15,335 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module mail (15/56) 
+2024-10-12 00:33:15,483 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module web_unsplash (16/56) 
+2024-10-12 00:33:15,493 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module analytic (17/56) 
+2024-10-12 00:33:15,499 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module auth_signup (18/56) 
+2024-10-12 00:33:15,512 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module calendar (19/56) 
+2024-10-12 00:33:15,533 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module fetchmail (20/56) 
+2024-10-12 00:33:15,547 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module mail_bot (21/56) 
+2024-10-12 00:33:15,561 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module partner_autocomplete (22/56) 
+2024-10-12 00:33:15,571 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module phone_validation (23/56) 
+2024-10-12 00:33:15,584 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module product (24/56) 
+2024-10-12 00:33:15,612 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module snailmail (25/56) 
+2024-10-12 00:33:15,627 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module hr (26/56) 
+2024-10-12 00:33:15,654 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module portal (27/56) 
+2024-10-12 00:33:15,673 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module sms (28/56) 
+2024-10-12 00:33:15,701 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module calendar_sms (29/56) 
+2024-10-12 00:33:15,706 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module digest (30/56) 
+2024-10-12 00:33:15,716 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module hr_contract (31/56) 
+2024-10-12 00:33:15,727 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module hr_holidays (32/56) 
+2024-10-12 00:33:15,761 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module hr_org_chart (33/56) 
+2024-10-12 00:33:15,768 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module account (34/56) 
+2024-10-12 00:33:15,856 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module hr_contract_types (35/56) 
+2024-10-12 00:33:15,860 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module hr_holidays_calendar (36/56) 
+2024-10-12 00:33:15,864 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module account_bank_statement_import (37/56) 
+2024-10-12 00:33:15,871 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module account_facturx (38/56) 
+2024-10-12 00:33:15,877 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module base_iban (39/56) 
+2024-10-12 00:33:15,881 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module base_vat (40/56) 
+2024-10-12 00:33:15,941 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module hr_payroll_community (41/56) 
+2024-10-12 00:33:15,946 387273 WARNING demodevel-jj-hr-odoo13 odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2024-10-12 00:33:15,946 387273 WARNING demodevel-jj-hr-odoo13 odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2024-10-12 00:33:15,949 387273 WARNING demodevel-jj-hr-odoo13 odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2024-10-12 00:33:15,949 387273 WARNING demodevel-jj-hr-odoo13 odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2024-10-12 00:33:15,949 387273 WARNING demodevel-jj-hr-odoo13 odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2024-10-12 00:33:15,949 387273 WARNING demodevel-jj-hr-odoo13 odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2024-10-12 00:33:15,961 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module payment (42/56) 
+2024-10-12 00:33:15,981 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module snailmail_account (43/56) 
+2024-10-12 00:33:15,988 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module alternative_detailed_payslip (44/56) 
+2024-10-12 00:33:15,995 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module hr_payroll_community_demo_data (45/56) 
+2024-10-12 00:33:15,999 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module l10n_fr (46/56) 
+2024-10-12 00:33:16,007 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module payment_transfer (47/56) 
+2024-10-12 00:33:16,013 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module payroll_typesafe_formulas (48/56) 
+2024-10-12 00:33:16,020 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module payslip_advanced_info_tab (49/56) 
+2024-10-12 00:33:16,023 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module payslip_aggregate_rule (50/56) 
+2024-10-12 00:33:16,030 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module alternative_french_payslip (51/56) 
+2024-10-12 00:33:16,033 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module l10n_fr_fec (52/56) 
+2024-10-12 00:33:16,037 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module payslip_effective_dates (53/56) 
+2024-10-12 00:33:16,045 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module payslip_proportional_bases (54/56) 
+2024-10-12 00:33:16,049 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module simple_payslip_template (55/56) 
+2024-10-12 00:33:16,056 387273 WARNING demodevel-jj-hr-odoo13 odoo.models: The model hr.contract.extras.insurance has no _description 
+2024-10-12 00:33:16,057 387273 DEBUG demodevel-jj-hr-odoo13 odoo.modules.loading: loading module test_simple_payslip_template (56/56) 
+2024-10-12 00:33:17,494 387273 INFO demodevel-jj-hr-odoo13 odoo.modules.registry: module test_simple_payslip_template: creating or updating database tables 
+2024-10-12 00:33:17,641 387273 INFO demodevel-jj-hr-odoo13 odoo.modules.loading: Module test_simple_payslip_template: loading demo 
+2024-10-12 00:33:17,750 387273 DEBUG demodevel-jj-hr-odoo13 odoo.tests.common: Skipping test '<unittest.suite.TestSuite tests=[]>' because no test_tag found. 
+2024-10-12 00:33:17,751 387273 INFO demodevel-jj-hr-odoo13 odoo.modules.module: odoo.addons.test_simple_payslip_template.tests.test_action_report_simplepayslip running tests. 
+2024-10-12 00:33:17,760 387273 INFO demodevel-jj-hr-odoo13 odoo.addons.test_simple_payslip_template.tests.test_action_report_simplepayslip: Starting TestActionReportSimplePayslip.test_report_action_created_and_conditioned ... 
+2024-10-12 00:33:17,773 387273 INFO demodevel-jj-hr-odoo13 odoo.addons.test_simple_payslip_template.tests.test_action_report_simplepayslip: ====================================================================== 
+2024-10-12 00:33:17,774 387273 ERROR demodevel-jj-hr-odoo13 odoo.addons.test_simple_payslip_template.tests.test_action_report_simplepayslip: ERROR: TestActionReportSimplePayslip.test_report_action_created_and_conditioned
+Traceback (most recent call last):
+  File "/odoo/releases/13.0/odoo/tools/cache.py", line 85, in lookup
+    r = d[key]
+  File "/odoo/releases/13.0/odoo/tools/func.py", line 69, in wrapper
+    return func(self, *args, **kwargs)
+  File "/odoo/releases/13.0/odoo/tools/lru.py", line 44, in __getitem__
+    a = self.d[obj].me
+KeyError: ('ir.model.data', <function IrModelData.xmlid_lookup at 0x7fc19901e040>, 'action_report_simplepayslip')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/odoo/Instances/demodevel-jj-hr-odoo13/SuiteRepos/SimplePayslipTemplate/0_Installable/13.0/test_simple_payslip_template/tests/test_action_report_simplepayslip.py", line 12, in test_report_action_created_and_conditioned
+    the_repact = self.env.ref('action_report_simplepayslip')
+  File "/odoo/releases/13.0/odoo/api.py", line 504, in ref
+    return self['ir.model.data'].xmlid_to_object(xml_id, raise_if_not_found=raise_if_not_found)
+  File "/odoo/releases/13.0/odoo/addons/base/models/ir_model.py", line 1713, in xmlid_to_object
+    t = self.xmlid_to_res_model_res_id(xmlid, raise_if_not_found)
+  File "/odoo/releases/13.0/odoo/addons/base/models/ir_model.py", line 1697, in xmlid_to_res_model_res_id
+    return self.xmlid_lookup(xmlid)[1:3]
+  File "<decorator-gen-25>", line 2, in xmlid_lookup
+  File "/odoo/releases/13.0/odoo/tools/cache.py", line 90, in lookup
+    value = d[key] = self.method(*args, **kwargs)
+  File "/odoo/releases/13.0/odoo/addons/base/models/ir_model.py", line 1683, in xmlid_lookup
+    module, name = xmlid.split('.', 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+ 
+2024-10-12 00:33:17,776 387273 INFO demodevel-jj-hr-odoo13 odoo.modules.module: Ran 1 test in 0.025s 
+2024-10-12 00:33:17,777 387273 ERROR demodevel-jj-hr-odoo13 odoo.modules.module: Module test_simple_payslip_template: 0 failures, 1 errors 
+2024-10-12 00:33:17,778 387273 DEBUG demodevel-jj-hr-odoo13 odoo.tests.common: Skipping test '<unittest.suite.TestSuite tests=[]>' because no test_tag found. 
+2024-10-12 00:33:17,778 387273 INFO demodevel-jj-hr-odoo13 odoo.modules.module: odoo.addons.test_simple_payslip_template.tests.test_printing_payslip running tests. 
+2024-10-12 00:33:17,805 387273 INFO demodevel-jj-hr-odoo13 odoo.addons.test_simple_payslip_template.tests.test_printing_payslip: Starting TestPrintingPayslip.test_beginnings ... 
+2024-10-12 00:33:17,810 387273 INFO demodevel-jj-hr-odoo13 odoo.addons.test_simple_payslip_template.tests.test_printing_payslip: Starting TestPrintingPayslip.test_printing_payslip ... 
+2024-10-12 00:33:20,956 387273 INFO demodevel-jj-hr-odoo13 odoo.addons.test_simple_payslip_template.tests.test_printing_payslip: ====================================================================== 
+2024-10-12 00:33:20,956 387273 ERROR demodevel-jj-hr-odoo13 odoo.addons.test_simple_payslip_template.tests.test_printing_payslip: ERROR: TestPrintingPayslip.test_printing_payslip
+Traceback (most recent call last):
+  File "/odoo/Instances/demodevel-jj-hr-odoo13/SuiteRepos/SimplePayslipTemplate/0_Installable/13.0/test_simple_payslip_template/tests/test_printing_payslip.py", line 44, in test_printing_payslip
+    self.payslip_01.line_ids.filtered(self.aux_predicate_appears_on_payslip) + 1)
+  File "/odoo/releases/13.0/odoo/models.py", line 5653, in __add__
+    return self.concat(other)
+  File "/odoo/releases/13.0/odoo/models.py", line 5662, in concat
+    raise TypeError("Mixing apples and oranges: %s.concat(%s)" % (self, arg))
+TypeError: Mixing apples and oranges: hr.payslip.line(1, 3, 4, 5, 6).concat(1)
+ 
+2024-10-12 00:33:20,958 387273 INFO demodevel-jj-hr-odoo13 odoo.modules.module: Ran 2 tests in 3.180s 
+2024-10-12 00:33:20,959 387273 ERROR demodevel-jj-hr-odoo13 odoo.modules.module: Module test_simple_payslip_template: 0 failures, 1 errors 
+2024-10-12 00:33:20,973 387273 INFO demodevel-jj-hr-odoo13 odoo.modules.loading: 56 modules loaded in 5.82s, 348 queries 
+2024-10-12 00:33:21,512 387273 DEBUG demodevel-jj-hr-odoo13 odoo.models: column password is in the table res_users but not in the corresponding object res.users 
+2024-10-12 00:33:21,520 387273 DEBUG demodevel-jj-hr-odoo13 odoo.models: column web is in the table ir_module_module but not in the corresponding object ir.module.module 
+2024-10-12 00:33:22,166 387273 ERROR demodevel-jj-hr-odoo13 odoo.modules.loading: At least one test failed when loading the modules. 
+2024-10-12 00:33:22,181 387273 INFO demodevel-jj-hr-odoo13 odoo.service.server: Starting post tests 
+2024-10-12 00:33:22,182 387273 DEBUG demodevel-jj-hr-odoo13 odoo.tests.common: Skipping test '<unittest.suite.TestSuite tests=[]>' because no test_tag found. 
+2024-10-12 00:33:22,183 387273 DEBUG demodevel-jj-hr-odoo13 odoo.tests.common: Skipping test '<unittest.suite.TestSuite tests=[]>' because no test_tag found. 
+2024-10-12 00:33:22,183 387273 INFO demodevel-jj-hr-odoo13 odoo.service.server: All post-tested in 0.00s, 0 queries 
+2024-10-12 00:33:22,183 387273 INFO demodevel-jj-hr-odoo13 odoo.service.server: Initiating shutdown 
+2024-10-12 00:33:22,184 387273 INFO demodevel-jj-hr-odoo13 odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2024-10-12 00:33:22,474 387273 DEBUG demodevel-jj-hr-odoo13 odoo.service.server: current thread: <_MainThread(MainThread, started 140469567021696)> 
+2024-10-12 00:33:22,475 387273 DEBUG demodevel-jj-hr-odoo13 odoo.service.server: process <_MainThread(MainThread, started 140469567021696)> (False) 
+2024-10-12 00:33:22,482 387273 INFO demodevel-jj-hr-odoo13 odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 2 connections  
+2024-10-12 00:33:22,483 387273 DEBUG demodevel-jj-hr-odoo13 odoo.service.server: -- 

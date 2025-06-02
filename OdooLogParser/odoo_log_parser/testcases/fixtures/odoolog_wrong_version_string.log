@@ -1,0 +1,111 @@
+2025-03-06 00:29:20,673 3000398 DEBUG ? odoo.netsvc: logger level set: "odoo.http.rpc.request:INFO" 
+2025-03-06 00:29:20,673 3000398 DEBUG ? odoo.netsvc: logger level set: "odoo.http.rpc.response:INFO" 
+2025-03-06 00:29:20,673 3000398 DEBUG ? odoo.netsvc: logger level set: ":INFO" 
+2025-03-06 00:29:20,673 3000398 DEBUG ? odoo.netsvc: logger level set: "odoo:DEBUG" 
+2025-03-06 00:29:20,673 3000398 DEBUG ? odoo.netsvc: logger level set: "odoo.sql_db:INFO" 
+2025-03-06 00:29:20,673 3000398 DEBUG ? odoo.netsvc: logger level set: ":INFO" 
+2025-03-06 00:29:20,675 3000398 WARNING ? py.warnings: /odoo/releases/18.0/odoo/tools/config.py:599: DeprecationWarning: The 'osv_memory_age_limit' option found in the configuration file is a deprecated alias to 'transient_age_limit', please use the latter.
+  File "/odoo/releases/18.0/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/odoo/releases/18.0/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/odoo/releases/18.0/odoo/cli/server.py", line 180, in run
+    main(args)
+  File "/odoo/releases/18.0/odoo/cli/server.py", line 135, in main
+    odoo.tools.config.parse_config(args, setup_logging=True)
+  File "/odoo/releases/18.0/odoo/tools/config.py", line 400, in parse_config
+    self._warn_deprecated_options()
+  File "/odoo/releases/18.0/odoo/tools/config.py", line 599, in _warn_deprecated_options
+    warnings.warn(
+ 
+2025-03-06 00:29:20,677 3000398 INFO ? odoo: Odoo version 18.0 
+2025-03-06 00:29:20,677 3000398 INFO ? odoo: Using configuration file at /odoo/configs/odoo-demodevel-jj-hr-odoo18.conf 
+2025-03-06 00:29:20,677 3000398 INFO ? odoo: addons paths: ['/odoo/releases/18.0/odoo/addons', '/odoo/.local/share/Odoo/addons/18.0', '/odoo/releases/18.0/addons', '/odoo/Instances/demodevel-jj-hr-odoo18/SuiteRepos/Payroll', '/odoo/Instances/demodevel-jj-hr-odoo18/SuiteRepos/Odoo-System-mods/0_Installable/18.0', '/odoo/Instances/demodevel-jj-hr-odoo18/SuiteRepos/SimplePayslipTemplate/0_Installable/18.0'] 
+2025-03-06 00:29:20,678 3000398 INFO ? odoo: database: odoo@default:default 
+2025-03-06 00:29:22,313 3000398 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2025-03-06 00:29:22,313 3000398 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltoimage to generate images from html. 
+2025-03-06 00:29:23,148 3000398 DEBUG ? odoo.service.server: Setting signal handlers 
+2025-03-06 00:29:23,150 3000398 INFO ? odoo.service.server: HTTP service (werkzeug) running on JerPro-OdooDevel.lan:20018 
+2025-03-06 00:29:23,215 3000398 INFO demodevel-jj-hr-odoo18 odoo.tests.common: Importing test framework 
+Stack (most recent call last):
+  File "/odoo/releases/18.0/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/odoo/releases/18.0/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/odoo/releases/18.0/odoo/cli/server.py", line 180, in run
+    main(args)
+  File "/odoo/releases/18.0/odoo/cli/server.py", line 173, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/odoo/releases/18.0/odoo/service/server.py", line 1402, in start
+    rc = server.run(preload, stop)
+  File "/odoo/releases/18.0/odoo/service/server.py", line 577, in run
+    rc = preload_registries(preload)
+  File "/odoo/releases/18.0/odoo/service/server.py", line 1306, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "<decorator-gen-13>", line 2, in new
+  File "/odoo/releases/18.0/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/odoo/releases/18.0/odoo/modules/registry.py", line 114, in new
+    registry.init(db_name)
+  File "/odoo/releases/18.0/odoo/modules/registry.py", line 155, in init
+    from odoo.tests.result import OdooTestResult  # noqa: PLC0415
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/odoo/releases/18.0/odoo/tests/__init__.py", line 8, in <module>
+    from . import common
+  File "<frozen importlib._bootstrap>", line 1078, in _handle_fromlist
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/odoo/releases/18.0/odoo/tests/common.py", line 95, in <module>
+    _logger.info("Importing test framework", stack_info=_logger.isEnabledFor(logging.DEBUG))
+2025-03-06 00:29:23,305 3000398 DEBUG demodevel-jj-hr-odoo18 odoo.modules.registry: Multiprocess load registry signaling: [Registry: 1] [Cache default: 1] [Cache assets: 1] [Cache templates: 1] [Cache routing: 1] [Cache groups: 1] 
+2025-03-06 00:29:23,313 3000398 INFO demodevel-jj-hr-odoo18 odoo.modules.loading: init db 
+2025-03-06 00:29:23,934 3000398 WARNING demodevel-jj-hr-odoo18 odoo.modules.module: Missing `license` key in manifest for 'base_testing', defaulting to LGPL-3 
+2025-03-06 00:29:26,667 3000398 INFO demodevel-jj-hr-odoo18 odoo.modules.loading: skipping reset_modules_state, ir_module_module table does not exists 
+2025-03-06 00:29:26,667 3000398 ERROR demodevel-jj-hr-odoo18 odoo.modules.registry: Failed to load registry 
+2025-03-06 00:29:26,667 3000398 CRITICAL demodevel-jj-hr-odoo18 odoo.service.server: Failed to initialize database `demodevel-jj-hr-odoo18`. 
+Traceback (most recent call last):
+  File "/odoo/releases/18.0/odoo/modules/module.py", line 343, in load_manifest
+    manifest['version'] = adapt_version(manifest['version'])
+  File "/odoo/releases/18.0/odoo/modules/module.py", line 463, in adapt_version
+    raise ValueError(f"Invalid version {base_version!r}. Modules should have a version in format `x.y`, `x.y.z`,"
+ValueError: Invalid version '1'. Modules should have a version in format `x.y`, `x.y.z`, `18.0.x.y` or `18.0.x.y.z`.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/odoo/releases/18.0/odoo/service/server.py", line 1306, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "<decorator-gen-13>", line 2, in new
+  File "/odoo/releases/18.0/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/odoo/releases/18.0/odoo/modules/registry.py", line 127, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/odoo/releases/18.0/odoo/modules/loading.py", line 396, in load_modules
+    odoo.modules.db.initialize(cr)
+  File "/odoo/releases/18.0/odoo/modules/db.py", line 44, in initialize
+    info = odoo.modules.get_manifest(i)
+  File "/odoo/releases/18.0/odoo/modules/module.py", line 363, in get_manifest
+    return copy.deepcopy(_get_manifest_cached(module, mod_path))
+  File "/odoo/releases/18.0/odoo/modules/module.py", line 367, in _get_manifest_cached
+    return load_manifest(module, mod_path)
+  File "/odoo/releases/18.0/odoo/modules/module.py", line 346, in load_manifest
+    raise ValueError(f"Module {module}: invalid manifest") from e
+ValueError: Module test_simple_payslip_template: invalid manifest
+2025-03-06 00:29:26,669 3000398 INFO demodevel-jj-hr-odoo18 odoo.service.server: Initiating shutdown 
+2025-03-06 00:29:26,670 3000398 INFO demodevel-jj-hr-odoo18 odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-03-06 00:29:27,158 3000398 DEBUG demodevel-jj-hr-odoo18 odoo.service.server: current thread: <_MainThread(MainThread, started 139919204733568)> 
+2025-03-06 00:29:27,159 3000398 DEBUG demodevel-jj-hr-odoo18 odoo.service.server: process <_MainThread(MainThread, started 139919204733568)> (False) 
+2025-03-06 00:29:27,159 3000398 INFO demodevel-jj-hr-odoo18 odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections  
+2025-03-06 00:29:27,159 3000398 INFO demodevel-jj-hr-odoo18 odoo.sql_db: ConnectionPool(read-only;used=0/count=0/max=64): Closed 0 connections  
+2025-03-06 00:29:27,159 3000398 DEBUG demodevel-jj-hr-odoo18 odoo.service.server: -- 
