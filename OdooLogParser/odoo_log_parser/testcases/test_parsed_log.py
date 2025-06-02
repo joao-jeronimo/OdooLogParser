@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 import re, unittest, random, os
-from odoo_log_parser.testcases.common import PythonLogParser_TestUtils
+from odoo_log_parser.testcases.common import OdooLogParser_TestUtils
 from unittest import TestCase
 from unittest.mock import Mock, MagicMock
 from odoo_log_parser import *
 
-class TestParsedLog(unittest.TestCase, PythonLogParser_TestUtils):
+class TestParsedLog(unittest.TestCase, OdooLogParser_TestUtils):
     """
     Test behaviour of class ParsedLog.
     """
