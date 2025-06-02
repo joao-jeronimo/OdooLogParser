@@ -1,0 +1,14 @@
+Dependências de build:
+    python -m pip install --upgrade pip
+
+Para o modo de desenvolvimento, o processo é:
+    pip install -e .
+    odoo_log_parser.py
+
+Para instalar e experimentar o bot em instalação normal, fazer:
+    python3 -m build
+    pip install dist/odoo_log_parser-0.0.1-py3-none-any.whl
+    Usl-BackupBot.py
+
+Para desinstalar:
+    pip uninstall odoo_log_parser
