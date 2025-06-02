@@ -1,4 +1,4 @@
-from .python_log_parser import *
+from .odoo_log_parser import *
 from .odoo_test_digest import *
 
 __version__ = "2.0.1"
