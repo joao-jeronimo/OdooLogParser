@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import re
-from .python_log_parser import PythonLogParser
+from .odoo_log_parser import PythonLogParser
 
 def mkstrictex(oregex):
     return r'^' + oregex + r'$'

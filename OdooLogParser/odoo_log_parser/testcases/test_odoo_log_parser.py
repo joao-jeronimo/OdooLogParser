@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 import re, unittest, random, os
-from python_log_parser.testcases.common import PythonLogParser_TestUtils
+from odoo_log_parser.testcases.common import OdooLogParser_TestUtils
 from unittest import TestCase
 from unittest.mock import Mock, MagicMock
-from python_log_parser import *
+from odoo_log_parser import *
 
-class TestPythonLogParser(unittest.TestCase, PythonLogParser_TestUtils):
+class TestOdooLogParser(unittest.TestCase, OdooLogParser_TestUtils):
     """
-    Test behaviour of class PythonLogParser.
+    Test behaviour of class OdooLogParser.
     """
     
     def test_begins(self):
@@ -24,7 +24,7 @@ class TestPythonLogParser(unittest.TestCase, PythonLogParser_TestUtils):
         Tests if the object can be instantiated and that the contents are retrieved from the file.
         """
         with open(self.log_file_testing_1['filename'], "r") as testfile:
-            logparser = PythonLogParser(testfile, python_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
+            logparser = OdooLogParser(testfile, odoo_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
             # Test 1st time:
             self.assertEqual( logparser._splitted_contents, self.log_file_testing_1['contents'].split("\n") )
             # Test a 2nd time to ensure cursors were rewound:
@@ -35,7 +35,7 @@ class TestPythonLogParser(unittest.TestCase, PythonLogParser_TestUtils):
         Method calcLogLength() must return the number of entries (not the number of lines).
         """
         with open(self.log_file_with_multiline_entries_1['filename'], "r") as testfile:
-            logparser = PythonLogParser(testfile, python_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
+            logparser = OdooLogParser(testfile, odoo_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
             # Test 1st time:
             self.assertEqual(   logparser.calcLogLength(), 9 )
     
@@ -46,7 +46,7 @@ class TestPythonLogParser(unittest.TestCase, PythonLogParser_TestUtils):
         than 1 line.
         """
         with open(self.log_file_testing_1['filename'], "r") as testfile:
-            logparser = PythonLogParser(testfile, python_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
+            logparser = OdooLogParser(testfile, odoo_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
             # Test 1st time:
             self.assertEqual(   logparser.parseEntriesByIdx(2).full_line,
                                 "2023-10-13 14:22:32,971 201825 INFO sintaf odoo.modules.loading: loading base/security/base_groups.xml" )
@@ -64,7 +64,7 @@ class TestPythonLogParser(unittest.TestCase, PythonLogParser_TestUtils):
         before the requested one takes more than 1 line.
         """
         with open(self.log_file_with_multiline_entries_1['filename'], "r") as testfile:
-            logparser = PythonLogParser(testfile, python_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
+            logparser = OdooLogParser(testfile, odoo_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
             # Test getting one line:
             self.assertEqual(
                 logparser.parseEntriesByIdx(3).full_line,
@@ -77,7 +77,7 @@ class TestPythonLogParser(unittest.TestCase, PythonLogParser_TestUtils):
         actually is a multi-line entry.
         """
         with open(self.log_file_with_multiline_entries_1['filename'], "r") as testfile:
-            logparser = PythonLogParser(testfile, python_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
+            logparser = OdooLogParser(testfile, odoo_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
             # Test getting one line:
             self.assertEqual(
                 logparser.parseEntriesByIdx(1).full_line,
@@ -90,7 +90,7 @@ ERROR: could not serialize access due to concurrent update
         Tests method parseEntriesByIdx() to actually retrieve a parsed multi-line entry.
         """
         with open(self.log_file_with_multiline_entries_1['filename'], "r") as testfile:
-            logparser = PythonLogParser(testfile, python_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
+            logparser = OdooLogParser(testfile, odoo_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
             # Test getting one line:
             self.assertEqual( logparser.parseEntriesByIdx(1)['year'], "2023")
             self.assertEqual( logparser.parseEntriesByIdx(1)['month'], "10")
@@ -112,7 +112,7 @@ ERROR: could not serialize access due to concurrent update
         Tests method parseEntriesByRegexSet() to filter lines by contents. In this case the assertions are made by string.
         """
         with open(self.log_file_with_multiline_entries_1['filename'], "r") as testfile:
-            logparser = PythonLogParser(testfile, python_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
+            logparser = OdooLogParser(testfile, odoo_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
             # Test getting with a filter that matches only one line:
             self.assertEqual(
                 logparser.parseEntriesByRegexSet([('log_level', '^ERROR$')]).entry_list[0].full_line,
@@ -121,7 +121,7 @@ ERROR: could not serialize access due to concurrent update
 """)
             # Test getting with a filter that matches many lines:
             self.assertEqual(
-                [ ent.full_line for ent in logparser.parseEntriesByRegexSet([('logger_name', '^odoo_module_writers_lib\..+$')]).entry_list ], [
+                [ ent.full_line for ent in logparser.parseEntriesByRegexSet([('logger_name', r'^odoo_module_writers_lib\..+$')]).entry_list ], [
                     "2023-10-13 15:31:39,015 202961 INFO sintaf odoo_module_writers_lib.domain: ORM domain «('allowed_operating_units_users_ids', '=', False)» translated into «[('operating_unit_id', '=', False), ('allowed_in_operating_unit_ids', '=', False)]».",
                     "2023-10-13 15:31:39,017 202961 INFO sintaf odoo_module_writers_lib.domain: ORM domain «('allowed_operating_units_users_ids', 'in', 2)» translated into «['|', ('operating_unit_id', 'in', [1]), ('allowed_in_operating_unit_ids', 'in', 1)]».",
                     "2023-10-13 15:31:39,041 202961 INFO sintaf odoo_module_writers_lib.domain: ORM domain «('allowed_operating_units_users_ids', '=', False)» translated into «[('operating_unit_id', '=', False), ('allowed_in_operating_unit_ids', '=', False)]».",
@@ -139,7 +139,7 @@ ERROR: could not serialize access due to concurrent update
         Tests method parseEntriesByRegexSet() to filter lines by contents. In this case the assertions are made by re.Match object.
         """
         with open(self.log_file_with_multiline_entries_1['filename'], "r") as testfile:
-            logparser = PythonLogParser(testfile, python_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
+            logparser = OdooLogParser(testfile, odoo_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
             # Test getting with a filter that matches only one line:
             self.assertEqual(
                 logparser.parseEntriesByRegexSet([('log_level', '^ERROR$')]).entry_list[0]['log_text'],
@@ -148,16 +148,16 @@ ERROR: could not serialize access due to concurrent update
 """)
             # Test getting with a filter that matches many lines:
             self.assertEqual(
-                logparser.parseEntriesByRegexSet([('logger_name', '^odoo_module_writers_lib\..+$')]).entry_list[0]['log_text'],
+                logparser.parseEntriesByRegexSet([('logger_name', r'^odoo_module_writers_lib\..+$')]).entry_list[0]['log_text'],
                 "ORM domain «('allowed_operating_units_users_ids', '=', False)» translated into «[('operating_unit_id', '=', False), ('allowed_in_operating_unit_ids', '=', False)]»." )
             self.assertEqual(
-                logparser.parseEntriesByRegexSet([('logger_name', '^odoo_module_writers_lib\..+$')]).entry_list[1]['log_text'],
+                logparser.parseEntriesByRegexSet([('logger_name', r'^odoo_module_writers_lib\..+$')]).entry_list[1]['log_text'],
                 "ORM domain «('allowed_operating_units_users_ids', 'in', 2)» translated into «['|', ('operating_unit_id', 'in', [1]), ('allowed_in_operating_unit_ids', 'in', 1)]»." )
             self.assertEqual(
-                logparser.parseEntriesByRegexSet([('logger_name', '^odoo_module_writers_lib\..+$')]).entry_list[2]['log_text'],
+                logparser.parseEntriesByRegexSet([('logger_name', r'^odoo_module_writers_lib\..+$')]).entry_list[2]['log_text'],
                 "ORM domain «('allowed_operating_units_users_ids', '=', False)» translated into «[('operating_unit_id', '=', False), ('allowed_in_operating_unit_ids', '=', False)]»." )
             self.assertEqual(
-                logparser.parseEntriesByRegexSet([('logger_name', '^odoo_module_writers_lib\..+$')]).entry_list[3]['log_text'],
+                logparser.parseEntriesByRegexSet([('logger_name', r'^odoo_module_writers_lib\..+$')]).entry_list[3]['log_text'],
                 "ORM domain «('allowed_operating_units_users_ids', 'in', 2)» translated into «['|', ('operating_unit_id', 'in', [1]), ('allowed_in_operating_unit_ids', 'in', 1)]»." )
     
     ############################################################

@@ -2,8 +2,8 @@
 import re, unittest, random, os
 from unittest import TestCase
 from unittest.mock import Mock, MagicMock
-from python_log_parser import *
-from extra_assert import *
+from odoo_log_parser import *
+from .extra_assert import *
 
 class TestOdooTestDigest(unittest.TestCase, ExtraAssert):
     """
