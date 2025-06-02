@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import re
-from .odoo_log_parser import PythonLogParser
+from .odoo_log_parser import OdooLogParser
 
 def mkstrictex(oregex):
     return r'^' + oregex + r'$'
@@ -24,7 +24,7 @@ REGEX_BODY_SETUP_SUCCEEDED = re.compile( mkstrictex(r'Starting +(?P<subpackage>[
 REGEX_BODY_TEST_ERRORS = re.compile( r'^ERROR: ' )
 REGEX_BODY_TEST_FAILURES = re.compile( r'^FAIL: ' )
 
-class OdooTestDigest(PythonLogParser):
+class OdooTestDigest(OdooLogParser):
     def get_full_test_digest(self):
         """
         Generates a test digest for the log file.

@@ -16,7 +16,7 @@ class TestParsedLog(unittest.TestCase, OdooLogParser_TestUtils):
         """
         with open(self.log_file_with_multiline_entries_1['filename'], "r") as testfile:
             # Get every line of any database::
-            logparser = PythonLogParser(testfile, odoo_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
+            logparser = OdooLogParser(testfile, odoo_log_parser.RAW_ODOO_LOG_ENTRY_OPENING_REGEX)
             all_lines = logparser.parseEntriesByRegexSet([('db_name', '^.*$')])
             self.assertEqual( set(all_lines.project('log_level', distinct=True)), {"INFO", "ERROR"})
             self.assertEqual( all_lines.project('db_name', distinct=True), ["sintaf"])

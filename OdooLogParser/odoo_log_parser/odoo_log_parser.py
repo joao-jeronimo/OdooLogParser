@@ -126,7 +126,7 @@ class ParsedLog(BrowseableConcreteLog):
             source_filter   = regex_set,
             )
 
-class PythonLogParser(BrowseableConcreteLog):
+class OdooLogParser(BrowseableConcreteLog):
     """
     Post-parses a log file and expose it's contents.
     Multiple line may belong to the same log entry. To work around
@@ -157,7 +157,7 @@ class PythonLogParser(BrowseableConcreteLog):
                 log entries; don't forget that on a Python regex the '.' char does not match
                 newlines.
         """
-        super(PythonLogParser, self).__init__()
+        super(OdooLogParser, self).__init__()
         ### Handling and storing the regexes:
         # Assert compiled by us:
         assert isinstance(raw_opening_regex, str)
@@ -221,7 +221,7 @@ class PythonLogParser(BrowseableConcreteLog):
         """
         return ParsedLog(
             source_log      = self,
-            entry_list      = super(PythonLogParser, self).parseEntriesByRegexSet(regex_set),
+            entry_list      = super(OdooLogParser, self).parseEntriesByRegexSet(regex_set),
             source_filter   = regex_set,
             )
 
