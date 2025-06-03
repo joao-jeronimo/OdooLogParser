@@ -119,12 +119,12 @@ def process_test_report(test_dict, keys2add={}):
                 if packge2modulename(one_test['test_path']) == module
                 ]
             # Add the key with it's list:
-            ret_dict[module][testcase] = [
-                {   **testee,
+            ret_dict[module][testcase] = {
+                packge2testname(testee['test_path']): {   **testee,
                     **keys2add,
                     }
                 for testee in this_mod_tests
-                ]
+                }
     # Return the result:
     return ret_dict
 
@@ -165,15 +165,17 @@ def Main(exec_name, exec_argv):
         # Report each module:
         for modname in all_modules_names:
             print(f'== Module - {modname}:')
-            # Module testcases:
+            # Report each module's testcase:
             for testcase_name, testcase_tests in converted_tests[modname].items():
                 print(f'Testcase {testcase_name}:')
-        
+                # Report each testcase's tests:
+                for test_name, test_information in testcase_tests.items():
+                    print(f'    {test_name}: {test_information["result"]}')
         
         
         
         #
-        #print('    test_fails: FAIL')
+        #
         #print('        FAIL: TestObjects.test_fails')
         #print('Traceback (most recent call last):')
         #print('  File "/odoo/Instances/demodevel-jj-hr-odoo17/SuiteRepos/SimplePayslipTemplate/0_Installable/17.0/hr_payroll_community_demo_data/tests/test_skel.py", line 7, in test_fails')
