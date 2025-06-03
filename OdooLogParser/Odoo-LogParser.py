@@ -170,7 +170,14 @@ def Main(exec_name, exec_argv):
                 print(f'Testcase {testcase_name}:')
                 # Report each testcase's tests:
                 for test_name, test_information in testcase_tests.items():
-                    print(f'    {test_name}: {test_information["result"]}')
+                    # Convert the result into a shiny format:
+                    shiny_result = {
+                        'tests_succeeded'   : 'SUCCESS',
+                        'tests_failing'     : 'FAIL',
+                        'tests_errors'      : 'ERROR',
+                        }[ test_information["result"] ]
+                    # Print the datas:
+                    print(f'    {test_name}: {shiny_result}')
         
         
         
