@@ -21,6 +21,6 @@ setup(
         'odoo_log_parser',
         ],
     scripts=[
-        #'Usl-BackupBot.py',
+        'Odoo-LogParser.py',
         ],
     )
