@@ -25,7 +25,8 @@ jobs:
           python3.11 -m pip install --upgrade pytest
           python3.11 -m pip install --upgrade toml
           python3.11 -m pip install -e .
-        working-directory: ./Usl-BackupBot
+        working-directory: ./OdooLogParser
 
       - name: Over Python 3.11 - Testing lib via pytest
         run: python3.11 -m pytest
+        working-directory: ./OdooLogParser
