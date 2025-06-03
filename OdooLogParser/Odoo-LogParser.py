@@ -33,12 +33,12 @@ def packge2testname(packagename):
     """
     return packagename.split('.')[-1]
 
-def process_test_list(test_list, keys2add):
+def process_test_report(test_dict, keys2add={}):
     """
     Converts a test list as returned by the OdooTestDigest.get_full_test_digest()
     method into a different form.
-        test_list   The sublist got with as expression looking like:
-                    OdooTestDigest().get_full_test_digest()['dbname']['tests_succeeded']
+        test_dict   The sublist got with as expression looking like:
+                    OdooTestDigest().get_full_test_digest()['dbname']
     Returns a dictionary of dictionaries of dictionaries, looking like:
         {   'module_name_number_one': {
                 'test_testcase_one_file_name.TestCaseOneClassName': {
@@ -72,6 +72,23 @@ def process_test_list(test_list, keys2add):
                 },
             }
     """
+    test_list = [
+        *[  {   **li,
+                'result': 'tests_succeeded'
+                }
+            for li in test_dict['tests_succeeded']
+            ],
+        *[  {   **li,
+                'result': 'tests_failing'
+                }
+            for li in test_dict['tests_failing']
+            ],
+        *[  {   **li,
+                'result': 'tests_errors'
+                }
+            for li in test_dict['tests_errors']
+            ],
+        ]
     # Get a list of modules in the list:
     modules_in_list = list({
         packge2modulename(one_test['test_path'])
@@ -142,24 +159,20 @@ def Main(exec_name, exec_argv):
         print(f'===== Database: {dbname}')
         print(f'===========================================')
         # Convert the lists:
-        tests_succeeded = process_test_list(digest[dbname]['tests_succeeded'],  { 'result': 'tests_succeeded' })
-        tests_failing   = process_test_list(digest[dbname]['tests_failing'],    { 'result': 'tests_failing' })
-        tests_errors    = process_test_list(digest[dbname]['tests_errors'],     { 'result': 'tests_errors' })
+        converted_tests = process_test_report(digest[dbname])
         # List if all modules with no repetitions:
-        all_modules_names = list(set([
-            *tests_succeeded.keys(),
-            *tests_failing.keys(),
-            *tests_errors.keys(),
-            ]))
+        all_modules_names = list( converted_tests.keys() )
         # Report each module:
         for modname in all_modules_names:
             print(f'== Module - {modname}:')
-            
+            # Module testcases:
+            for testcase_name, testcase_tests in converted_tests[modname].items():
+                print(f'Testcase {testcase_name}:')
         
         
         
         
-        #print('Testcase test_skel.TestObjects:')
+        #
         #print('    test_fails: FAIL')
         #print('        FAIL: TestObjects.test_fails')
         #print('Traceback (most recent call last):')
