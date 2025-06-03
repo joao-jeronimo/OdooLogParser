@@ -36,7 +36,7 @@ class TestcaseFrontendOdooLogParser(unittest.TestCase, extra_assert.ExtraAssert)
             '===== Database: adhoc-test17',
             '===========================================',
             '== Module - hr_payroll_community_demo_data:',
-            '/odoo/Instances/demodevel-jj-hr-odoo17/SuiteRepos/SimplePayslipTemplate/0_Installable/17.0/hr_payroll_community_demo_data/tests/test_skel.py:',
+            'Testcase test_skel.TestObjects:',
             '    test_fails: FAIL',
             '        FAIL: TestObjects.test_fails',
             'Traceback (most recent call last):',

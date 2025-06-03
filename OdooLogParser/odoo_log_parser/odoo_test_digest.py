@@ -28,6 +28,31 @@ class OdooTestDigest(OdooLogParser):
     def get_full_test_digest(self):
         """
         Generates a test digest for the log file.
+        Returns a dictionary in the form:
+            {   'db_name': {
+                    'tests_succeeded' : [
+                        {   'test_path': "odoo.addons.module_name.tests.test_testcase1_file_name.TestCase1ClassName.test_method_1_name",
+                            'test_log': "The log of the test. May be take multiple lines.",
+                            },
+                        {   'test_path': "odoo.addons.module_name.tests.test_testcase1_file_name.TestCase1ClassName.test_method_2_name",
+                            'test_log': "The log of the test. May be take multiple lines.",
+                            },
+                        {   'test_path': "odoo.addons.module_name.tests.test_testcase2_file_name.TestCase2ClassName.test_method_1_name",
+                            'test_log': "The log of the test. May be take multiple lines.",
+                            },
+                        ],
+                    'tests_failing' : [
+                        {   'test_path': "odoo.addons.module_name.tests.test_testcase1_file_name.TestCase1ClassName.test_method_1_name",
+                            'test_log': "The log of the test. May be take multiple lines.",
+                            },
+                        ],
+                    'tests_errors' : [
+                        {   'test_path': "odoo.addons.module_name.tests.test_testcase1_file_name.TestCase1ClassName.test_method_1_name",
+                            'test_log': "The log of the test. May be take multiple lines.",
+                            },
+                        ],
+                    },
+                }
         """
         # Get every database bound log entry:
         test_log = self.parseEntriesByRegexSet([('db_name', REGEX_IDENTITY)])

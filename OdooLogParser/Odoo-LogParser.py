@@ -3,7 +3,55 @@
 import argparse, odoo_log_parser, os, sys, importlib
 
 def packge2modulename(packagename):
-    pass
+    """
+    Converts a python package name into an Odoo module name, that is:
+        odoo.addons.my_module_name.teste.test_xpto.py
+    ... is converted into:
+        my_module_name
+    Arguments:
+        packagename     The full python package name to convert.
+    """
+    return packagename.split('.')[2]
+
+def process_test_list(test_list, keys2add):
+    """
+    Converts a test list as returned by the OdooTestDigest.get_full_test_digest()
+    method into a different form.
+        test_list   The sublist got with as expression looking like:
+                    OdooTestDigest().get_full_test_digest()['dbname']['tests_succeeded']
+    Returns a dictionary of dictionaries of dictionaries, looking like:
+        {   'module_name_number_one': {
+                'test_testcase_one_file_name.TestCaseOneClassName': {
+                    'test_method_1_name': {
+                        'test_path': "odoo.addons.module_name_number_one.tests.test_testcase_one_file_name.TestCaseOneClassName.test_method_1_name",
+                        'test_log': "The log of the test. May be take multiple lines.",
+                        **keys2add,
+                        },
+                    'test_method_2_name': {
+                        'test_path': "odoo.addons.module_name_number_one.tests.test_testcase_one_file_name.TestCaseOneClassName.test_method_2_name",
+                        'test_log': "The log of the test. May be take multiple lines.",
+                        **keys2add,
+                        },
+                    },
+                },
+                'test_testcase_two_file_name.TestCaseTwoClassName': {
+                    'test_method_1_name': {
+                        'test_path': "odoo.addons.module_name_number_one.tests.test_testcase_two_file_name.TestCaseTwoClassName.test_method_1_name",
+                        'test_log': "The log of the test. May be take multiple lines.",
+                        **keys2add,
+                        },
+                    'test_method_2_name': {
+                        'test_path': "odoo.addons.module_name_number_one.tests.test_testcase_two_file_name.TestCaseTwoClassName.test_method_2_name",
+                        'test_log': "The log of the test. May be take multiple lines.",
+                        **keys2add,
+                        },
+                    },
+                },
+            'module_name_number_two': {
+                (...),
+                },
+            }
+    """
 
 def Main(exec_name, exec_argv):
     """
@@ -40,7 +88,7 @@ def Main(exec_name, exec_argv):
         
         
         #print('== Module - hr_payroll_community_demo_data:')
-        #print('/odoo/Instances/demodevel-jj-hr-odoo17/SuiteRepos/SimplePayslipTemplate/0_Installable/17.0/hr_payroll_community_demo_data/tests/test_skel.py:')
+        #print('Testcase test_skel.TestObjects:')
         #print('    test_fails: FAIL')
         #print('        FAIL: TestObjects.test_fails')
         #print('Traceback (most recent call last):')
