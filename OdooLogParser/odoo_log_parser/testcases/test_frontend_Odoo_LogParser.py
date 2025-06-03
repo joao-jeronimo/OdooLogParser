@@ -21,6 +21,38 @@ class TestcaseFrontendOdooLogParser(unittest.TestCase, extra_assert.ExtraAssert)
             '--logfile', self.odoolog_skels_demo['filename'],
             ])
     
+    @patch('builtins.print')
+    def test_Main_echoes_test_digest(self, mock_print):
+        """
+        O frontend tem que aceitar a opção «--test-digest sections», que
+        dará o resumo dos testes em forma de secções.
+        """
+        frontend_Odoo_LogParser.Main("Odoo-LogParser.py", [
+            '--logfile', self.odoolog_skels_demo['filename'],
+            ])
+        # Define what is to be printed:
+        lines2beprinted = [
+            '===========================================',
+            '===== Database: adhoc-test17',
+            '===========================================',
+            '== Module - hr_payroll_community_demo_data:',
+            '/odoo/Instances/demodevel-jj-hr-odoo17/SuiteRepos/SimplePayslipTemplate/0_Installable/17.0/hr_payroll_community_demo_data/tests/test_skel.py:',
+            '    test_fails: FAIL',
+            '        FAIL: TestObjects.test_fails',
+            'Traceback (most recent call last):',
+            '  File "/odoo/Instances/demodevel-jj-hr-odoo17/SuiteRepos/SimplePayslipTemplate/0_Installable/17.0/hr_payroll_community_demo_data/tests/test_skel.py", line 7, in test_fails',
+            '    self.assertTrue(False)',
+            'AssertionError: False is not true',
+            ' ',
+            ]
+        # Assert that they were really printed:
+        self.assertEqual( mock_print.call_count, len(lines2beprinted) )
+        mock_print.assert_has_calls([
+                mocked_call(thestring)
+                for thestring in lines2beprinted
+                ],
+            any_order=False)
+    
     ############################################################
     ############################################################
     ############################################################
