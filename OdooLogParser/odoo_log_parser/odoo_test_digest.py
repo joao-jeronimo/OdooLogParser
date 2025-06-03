@@ -19,7 +19,7 @@ REGEX_LOGLVLs_INFO_AND_ERROR = re.compile( mkstrictex(r'INFO|ERROR') )
 REGEX_LOGGER_UNITTEST_SUITE = re.compile( mkstrictex(r'unittest\.suite|odoo\.tests\.suite') )
 REGEX_LOGGER_ODOOMOD_TESTS = re.compile( mkstrictex(REGEX_PACKAGE_ODOOMOD_TESTS) )
 ### Regexes for searching inside entry contents - To compile:
-REGEX_BODY_SETUP_ERRORS = re.compile( r'^ERROR: (setUpClass) \(('+REGEX_PACKAGE_ODOOMOD_TESTS+')\)' )
+REGEX_BODY_SETUP_ERRORS = re.compile( r'^ERROR: (setUpClass) \(('+REGEX_PACKAGE_ODOOMOD_TESTS+r')\)' )
 REGEX_BODY_SETUP_SUCCEEDED = re.compile( mkstrictex(r'Starting +(?P<subpackage>[^ ]+) *\.\.\. *') )
 REGEX_BODY_TEST_ERRORS = re.compile( r'^ERROR: ' )
 REGEX_BODY_TEST_FAILURES = re.compile( r'^FAIL: ' )
