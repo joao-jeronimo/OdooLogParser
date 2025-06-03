@@ -46,12 +46,12 @@ class TestcaseFrontendOdooLogParser(unittest.TestCase, extra_assert.ExtraAssert)
             ' ',
             ]
         # Assert that they were really printed:
-        self.assertEqual( mock_print.call_count, len(lines2beprinted) )
         mock_print.assert_has_calls([
                 mocked_call(thestring)
                 for thestring in lines2beprinted
                 ],
             any_order=False)
+        self.assertEqual( mock_print.call_count, len(lines2beprinted) )
     
     ############################################################
     ############################################################
