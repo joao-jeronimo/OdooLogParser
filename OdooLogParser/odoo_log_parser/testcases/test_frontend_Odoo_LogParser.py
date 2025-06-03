@@ -37,13 +37,15 @@ class TestcaseFrontendOdooLogParser(unittest.TestCase, extra_assert.ExtraAssert)
             '===========================================',
             '== Module - hr_payroll_community_demo_data:',
             'Testcase test_skel.TestObjects:',
+            '    test_passes: SUCCESS',
+            '        Starting TestObjects.test_passes ... ',
             '    test_fails: FAIL',
             '        FAIL: TestObjects.test_fails',
-            'Traceback (most recent call last):',
-            '  File "/odoo/Instances/demodevel-jj-hr-odoo17/SuiteRepos/SimplePayslipTemplate/0_Installable/17.0/hr_payroll_community_demo_data/tests/test_skel.py", line 7, in test_fails',
-            '    self.assertTrue(False)',
-            'AssertionError: False is not true',
-            ' ',
+            '            Traceback (most recent call last):',
+            '              File "/odoo/Instances/demodevel-jj-hr-odoo17/SuiteRepos/SimplePayslipTemplate/0_Installable/17.0/hr_payroll_community_demo_data/tests/test_skel.py", line 7, in test_fails',
+            '                self.assertTrue(False)',
+            '            AssertionError: False is not true',
+            '             ',
             ]
         # Assert that they were really printed:
         mock_print.assert_has_calls([

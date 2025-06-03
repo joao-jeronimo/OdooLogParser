@@ -176,18 +176,10 @@ def Main(exec_name, exec_argv):
                         'tests_failing'     : 'FAIL',
                         'tests_errors'      : 'ERROR',
                         }[ test_information["result"] ]
-                    # Print the datas:
+                    # Print the test header:
                     print(f'    {test_name}: {shiny_result}')
-        
-        
-        
-        #
-        #
-        #print('        FAIL: TestObjects.test_fails')
-        #print('Traceback (most recent call last):')
-        #print('  File "/odoo/Instances/demodevel-jj-hr-odoo17/SuiteRepos/SimplePayslipTemplate/0_Installable/17.0/hr_payroll_community_demo_data/tests/test_skel.py", line 7, in test_fails')
-        #print('    self.assertTrue(False)')
-        #print('AssertionError: False is not true')
-        #print(' ')
+                    # Print the test output log:
+                    for log_line in test_information["test_log"].split('\n'):
+                        print(f'        {log_line}')
 
 if __name__ == "__main__": exit(Main(exec_name=sys.argv[0], exec_argv=sys.argv[1:]))
