@@ -8,6 +8,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Inspecting folder content
+        run: ls -l
 
       - name: Installing python 3.11
         uses: actions/setup-python@v5
