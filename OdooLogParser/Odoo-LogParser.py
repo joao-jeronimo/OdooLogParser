@@ -5,13 +5,33 @@ import argparse, odoo_log_parser, os, sys, importlib
 def packge2modulename(packagename):
     """
     Converts a python package name into an Odoo module name, that is:
-        odoo.addons.my_module_name.teste.test_xpto.py
+        odoo.addons.my_module_name.teste.test_xpto.TestXpto.test_name
     ... is converted into:
         my_module_name
     Arguments:
         packagename     The full python package name to convert.
     """
     return packagename.split('.')[2]
+def packge2testcasename(packagename):
+    """
+    Converts a python package name into a testcase name, that is:
+        odoo.addons.my_module_name.teste.test_xpto.TestXpto.test_name
+    ... is converted into:
+        test_xpto.TestXpto
+    Arguments:
+        packagename     The full python package name to convert.
+    """
+    return '.'.join( packagename.split('.')[4:6] )
+def packge2testname(packagename):
+    """
+    Converts a python package name into the test method name, that is:
+        odoo.addons.my_module_name.teste.test_xpto.TestXpto.test_name
+    ... is converted into:
+        test_name
+    Arguments:
+        packagename     The full python package name to convert.
+    """
+    return packagename.split('.')[-1]
 
 def process_test_list(test_list, keys2add):
     """
@@ -52,6 +72,44 @@ def process_test_list(test_list, keys2add):
                 },
             }
     """
+    # Get a list of modules in the list:
+    modules_in_list = list({
+        packge2modulename(one_test['test_path'])
+        for one_test in test_list
+        })
+    # For each of them, process:
+    ret_dict = dict()
+    for module in modules_in_list:
+        # Add the module key:
+        ret_dict[module] = dict()
+        # Every test of this module:
+        this_mod_tests = [
+            one_test
+            for one_test in test_list
+            if packge2modulename(one_test['test_path']) == module
+            ]
+        # Get a list of testcases:
+        testcases_in_list = list({
+            packge2testcasename(one_test['test_path'])
+            for one_test in this_mod_tests
+            })
+        # For each of them, process:
+        for testcase in testcases_in_list:
+            # Every test of this module:
+            this_mod_tests = [
+                one_test
+                for one_test in test_list
+                if packge2modulename(one_test['test_path']) == module
+                ]
+            # Add the key with it's list:
+            ret_dict[module][testcase] = [
+                {   **testee,
+                    **keys2add,
+                    }
+                for testee in this_mod_tests
+                ]
+    # Return the result:
+    return ret_dict
 
 def Main(exec_name, exec_argv):
     """
@@ -83,11 +141,24 @@ def Main(exec_name, exec_argv):
         print(f'===========================================')
         print(f'===== Database: {dbname}')
         print(f'===========================================')
-        # Get a list of every module being tested:
-        every_module = None
+        # Convert the lists:
+        tests_succeeded = process_test_list(digest[dbname]['tests_succeeded'],  { 'result': 'tests_succeeded' })
+        tests_failing   = process_test_list(digest[dbname]['tests_failing'],    { 'result': 'tests_failing' })
+        tests_errors    = process_test_list(digest[dbname]['tests_errors'],     { 'result': 'tests_errors' })
+        # List if all modules with no repetitions:
+        all_modules_names = list(set([
+            *tests_succeeded.keys(),
+            *tests_failing.keys(),
+            *tests_errors.keys(),
+            ]))
+        # Report each module:
+        for modname in all_modules_names:
+            print(f'== Module - {modname}:')
+            
         
         
-        #print('== Module - hr_payroll_community_demo_data:')
+        
+        
         #print('Testcase test_skel.TestObjects:')
         #print('    test_fails: FAIL')
         #print('        FAIL: TestObjects.test_fails')
