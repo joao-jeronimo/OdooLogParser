@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import re
-from .odoo_log_parser import PythonLogParser
+from .odoo_log_parser import OdooLogParser
 
 def mkstrictex(oregex):
     return r'^' + oregex + r'$'
@@ -19,15 +19,40 @@ REGEX_LOGLVLs_INFO_AND_ERROR = re.compile( mkstrictex(r'INFO|ERROR') )
 REGEX_LOGGER_UNITTEST_SUITE = re.compile( mkstrictex(r'unittest\.suite|odoo\.tests\.suite') )
 REGEX_LOGGER_ODOOMOD_TESTS = re.compile( mkstrictex(REGEX_PACKAGE_ODOOMOD_TESTS) )
 ### Regexes for searching inside entry contents - To compile:
-REGEX_BODY_SETUP_ERRORS = re.compile( r'^ERROR: (setUpClass) \(('+REGEX_PACKAGE_ODOOMOD_TESTS+')\)' )
+REGEX_BODY_SETUP_ERRORS = re.compile( r'^ERROR: (setUpClass) \(('+REGEX_PACKAGE_ODOOMOD_TESTS+r')\)' )
 REGEX_BODY_SETUP_SUCCEEDED = re.compile( mkstrictex(r'Starting +(?P<subpackage>[^ ]+) *\.\.\. *') )
 REGEX_BODY_TEST_ERRORS = re.compile( r'^ERROR: ' )
 REGEX_BODY_TEST_FAILURES = re.compile( r'^FAIL: ' )
 
-class OdooTestDigest(PythonLogParser):
+class OdooTestDigest(OdooLogParser):
     def get_full_test_digest(self):
         """
         Generates a test digest for the log file.
+        Returns a dictionary in the form:
+            {   'db_name': {
+                    'tests_succeeded' : [
+                        {   'test_path': "odoo.addons.module_name.tests.test_testcase1_file_name.TestCase1ClassName.test_method_1_name",
+                            'test_log': "The log of the test. May be take multiple lines.",
+                            },
+                        {   'test_path': "odoo.addons.module_name.tests.test_testcase1_file_name.TestCase1ClassName.test_method_2_name",
+                            'test_log': "The log of the test. May be take multiple lines.",
+                            },
+                        {   'test_path': "odoo.addons.module_name.tests.test_testcase2_file_name.TestCase2ClassName.test_method_1_name",
+                            'test_log': "The log of the test. May be take multiple lines.",
+                            },
+                        ],
+                    'tests_failing' : [
+                        {   'test_path': "odoo.addons.module_name.tests.test_testcase1_file_name.TestCase1ClassName.test_method_1_name",
+                            'test_log': "The log of the test. May be take multiple lines.",
+                            },
+                        ],
+                    'tests_errors' : [
+                        {   'test_path': "odoo.addons.module_name.tests.test_testcase1_file_name.TestCase1ClassName.test_method_1_name",
+                            'test_log': "The log of the test. May be take multiple lines.",
+                            },
+                        ],
+                    },
+                }
         """
         # Get every database bound log entry:
         test_log = self.parseEntriesByRegexSet([('db_name', REGEX_IDENTITY)])

@@ -1,0 +1,32 @@
+name: Testes com Pytest
+
+on: [push, pull_request]
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Inspecting folder content
+        run: ls -l
+
+      - name: Installing python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify how to call python 3.11
+        run: python3.11 --version
+
+      - name: Over Python 3.11 - Installing lib dependencies
+        run: |
+          python3.11 -m pip install --upgrade pip
+          python3.11 -m pip install --upgrade pytest
+          python3.11 -m pip install --upgrade toml
+          python3.11 -m pip install -e .
+        working-directory: ./OdooLogParser
+
+      - name: Over Python 3.11 - Testing lib via pytest
+        run: python3.11 -m pytest
+        working-directory: ./OdooLogParser
