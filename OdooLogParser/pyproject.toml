@@ -11,7 +11,7 @@ authors = [
 classifiers = [
 	"Development Status :: 5 - Production/Stable",
 	]
-version="0.1.0"
+version="0.1.1"
 dependencies = [
 	]
 requires-python = ">=3.9"
