@@ -1,3 +1,17 @@
 [build-system]
 requires = ["setuptools >= 77.0.3"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "OdooLogParser"
+description = "Log Parser for Odoo logs, including a test digest generator"
+authors = [
+	{ name = "João Jerónimo", email = "joao.jeronimo.pro@gmail.com" }
+	]
+classifiers = [
+	"Development Status :: 5 - Production/Stable",
+	]
+version="0.0.1"
+dependencies = [
+	]
+requires-python = ">=3.9"
